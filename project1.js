@@ -9,61 +9,43 @@ Assessment Requirements
 */
 
 // create a variable to hold your NFT's
+let nftCollection = [];
 
 // this function will take in some values as parameters, create an
 // NFT object using the parameters passed to it for its metadata, 
-// and store it in the variable above.
-//function mintNFT () {
 
-
-
-// create a "loop" that will go through an "array" of NFT's
-// and print their metadata with console.log()
-//function listNFTs () {
-
-
-
-// print the total number of NFTs we have minted to the console
-//function getTotalSupply() {
-
-
-
-// call your functions below this line
-
-
-let nftCollection = [];
-
-
-function mintNFT(Name, EyeColor, ShirtType) {
-    
+function mintNFT(name, eyeColor, shirtType) {
     const nft = {
-        Name: Name,
-        EyeColor: EyeColor,
-        ShirtType: ShirtType,
-        
+        name: name,
+        eyeColor: eyeColor,
+        shirtType: shirtType,
     };
-
-    
     nftCollection.push(nft);
 }
 
-
-function printNFTs() {
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs() {
     nftCollection.forEach((nft, index) => {
         console.log(`NFT ${index + 1}:`);
-        console.log(`Name: ${nft.Name}`);
-        console.log(`Eye Color: ${nft.EyeColor}`);
-        console.log(`Shirt Type: ${nft.ShirtType}`);
+        console.log(`Name: ${nft.name}`);
+        console.log(`Eye Color: ${nft.eyeColor}`);
+        console.log(`Shirt Type: ${nft.shirtType}`);
         console.log('-------------------------');
     });
 }
 
+// print the total number of NFTs we have minted 
+function getTotalSupply() {
+    return nftCollection.length;
+}
 
+// call your functions below this line
 mintNFT("Aditya", "Blue", "Hoodie");
 mintNFT("Roshan", "Green", "T-Shirt");
 mintNFT("Harshit", "Red", "Jacket");
-mintNFT("Anurag", "purple", "shirt");
-mintNFT("Rohit", "yellow", "pant");
+mintNFT("Anurag", "Purple", "Shirt");
+mintNFT("Rohit", "Yellow", "Pant");
 
-
-printNFTs();
+listNFTs();
+console.log(`Total Supply: ${getTotalSupply()}`);
